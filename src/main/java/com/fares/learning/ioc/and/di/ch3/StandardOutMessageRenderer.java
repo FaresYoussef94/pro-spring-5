@@ -8,6 +8,10 @@ public class StandardOutMessageRenderer implements MessageRenderer {
 
 	private MessageProvider messageProvider;
 
+	public StandardOutMessageRenderer(MessageProvider messageProvider) {
+		this.messageProvider=messageProvider;
+	}
+	
 	public void render() {
 
 		if (getMessageProvider() == null) {
@@ -18,7 +22,7 @@ public class StandardOutMessageRenderer implements MessageRenderer {
 
 	}
 
-	@Autowired
+//	@Autowired
 	public void setMessageProvider(MessageProvider provider) {
 		this.messageProvider = provider;
 	}

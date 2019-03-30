@@ -9,7 +9,9 @@ public class DeclareSpringComponents {
 		GenericXmlApplicationContext ctx = new GenericXmlApplicationContext();
 		ctx.load(new ClassPathResource("app-context-xml.xml"));
 		ctx.refresh();
+//		MessageProvider messageProvider = ctx.getBean("provider", MessageProvider.class);
 		MessageRenderer messageRenderer = ctx.getBean("renderer", MessageRenderer.class);
+//		messageRenderer.setMessageProvider(messageProvider);
 		messageRenderer.render();
 		ctx.close();
 	}
