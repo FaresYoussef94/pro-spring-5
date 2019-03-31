@@ -1,6 +1,8 @@
-package com.fares.learning.ch4.hooking.into.bean.creation;
+package com.fares.learning.ch4.declaring.an.initialization.method.using.bean.annotatation;
 
-public class MethodBasedSinger {
+import com.fares.learning.ch4.hooking.into.bean.creation.MethodBasedSinger;
+
+public class BeanConfigurationSinger {
 
 	private static final String DEFAULT_NAME = "Eric Clapton";
 	private String name;
