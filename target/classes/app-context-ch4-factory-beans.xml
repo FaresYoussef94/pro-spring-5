@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+   		http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<bean id="shaDigest"
+		class="com.fares.learning.ch4.factory.beans.MessageDigestFactoryBean"
+		p:algorithmName="SHA1" />
+	<bean id="defaultDigest"
+		class="com.fares.learning.ch4.factory.beans.MessageDigestFactoryBean" />
+	<bean id="digester"
+		class="com.fares.learning.ch4.factory.beans.MessageDigester"
+		p:digest1-ref="shaDigest" p:digest2-ref="defaultDigest" />
+
+
+
+
+	<bean id="shaDigestFactory"
+		class="com.fares.learning.ch4.factory.beans.MessageDigestFactoryBeanAndFactoryMethod"
+		p:algorithmName="SHA1" />
+	
+	<bean id="defaultDigestFactory"
+		class="com.fares.learning.ch4.factory.beans.MessageDigestFactoryBeanAndFactoryMethod" />
+	
+	<bean id="shaDigestFactoryBeanAttribute"
+		factory-bean="shaDigestFactory" factory-method="createInstance" />
+	
+	<bean id="defaultDigestFactoryBeanAttribute"
+		factory-bean="defaultDigestFactory" factory-method="createInstance" />
+	
+	<bean id="digesterFactoryBeanAttribute"
+		class="com.fares.learning.ch4.factory.beans.MessageDigester"
+		p:digest1-ref="shaDigestFactoryBeanAttribute" p:digest2-ref="defaultDigestFactoryBeanAttribute" />
+
+
+</beans>

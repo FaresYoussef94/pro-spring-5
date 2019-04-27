@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context 
+   		http://www.springframework.org/schema/context/spring-context.xsd">
+        
+	<context:component-scan base-package="com.fares.learning.ch4.hooking.into.bean.destruction"></context:component-scan>    
+
+	<bean id="methodBasedDestructiveBean"
+		class="com.fares.learning.ch4.hooking.into.bean.destruction.MethodBasedDestructiveBean"
+		destroy-method="destroy"
+		p:filePath="/Users/faresyoussef/Desktop/test.txt" />
+
+	<bean id="interfaceBasedDestructiveBean"
+		class="com.fares.learning.ch4.hooking.into.bean.destruction.InterfaceBasedDestructiveBean"
+		p:filePath="/Users/faresyoussef/Desktop/test.txt" />
+
+
+	<bean id="annotationBasedDestructiveBean"
+		class="com.fares.learning.ch4.hooking.into.bean.destruction.AnnotationBasedDestructiveBean"
+		p:filePath="/Users/faresyoussef/Desktop/test.txt" />
+		
+	
+
+</beans>
